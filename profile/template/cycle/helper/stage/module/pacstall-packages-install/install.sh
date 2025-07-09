@@ -48,62 +48,22 @@ REF_INIT_DIR_PATH="${REF_BASE_DIR_PATH}/../../../ext"
 ### Head: Model / mod_module_pacstall_install
 ##
 
-sys_pacstall_build_essential () {
+sys_pacstall_install_packages () {
 
 
 	##
-	## ## apt-get install -y --no-install-recommends
+	## ## Example
+	##
+	## `sudo pacstall -QPINs nushell-bin`
+	##
+	## `sudo pacstall -QPI nushell-bin`
 	##
 
 
 local run_cmd=$(cat << __EOF__
-	apt-get install -y
-		dpkg
-		gettext
-		gzip
-__EOF__
-)
+	pacstall -QPI
+		nushell-bin
 
-
-
-
-	util_error_echo
-	util_error_echo $run_cmd
-	util_error_echo
-
-	$run_cmd
-
-
-
-
-	return 0
-
-}
-
-sys_pacstall_depends () {
-
-
-
-
-local run_cmd=$(cat << __EOF__
-	apt-get install -y
-		bash
-		curl
-		wget
-		git
-		unzip
-		zstd
-		tar
-		gzip
-		sensible-utils
-		iputils-ping
-		lsb-release
-		aptitude
-		bubblewrap
-		build-essential
-		jq
-		distro-info-data
-		gettext
 __EOF__
 )
 
@@ -122,40 +82,10 @@ __EOF__
 	return 0
 }
 
-sys_pacstall_packaging () {
-
-
-	util_error_echo
-	util_error_echo "${REF_BASE_DIR_PATH}/deb-build.sh"
-	util_error_echo
-	"${REF_BASE_DIR_PATH}/deb-build.sh"
-
-
-	return 0
-}
-
-sys_pacstall_package_install () {
-
-	local deb_file_path="${REF_BASE_DIR_PATH}/build/deb/pacstall.deb"
-
-	util_error_echo
-	util_error_echo dpkg -i "${deb_file_path}"
-	util_error_echo
-	dpkg -i "${deb_file_path}"
-
-	return 0
-}
 
 mod_module_pacstall_install () {
 
-	sys_pacstall_build_essential
-
-	sys_pacstall_depends
-
-	sys_pacstall_packaging
-
-	sys_pacstall_package_install
-
+	sys_pacstall_install_packages
 
 	return 0
 }

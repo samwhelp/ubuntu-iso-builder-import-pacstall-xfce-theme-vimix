@@ -1,0 +1,14 @@
+
+
+##
+## # custom-tail
+##
+
+
+
+
+##
+## ## pacstall-packages
+##
+
+pacstall-packages-install
