@@ -8,6 +8,15 @@
 
 
 ##
+## ## pacstall-themes
+##
+
+pacstall-themes-install
+
+
+
+
+##
 ## ## pacstall-packages
 ##
 
