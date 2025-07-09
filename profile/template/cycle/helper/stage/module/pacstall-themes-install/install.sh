@@ -81,8 +81,8 @@ sys_pacstall_install_packages () {
 
 local run_cmd=$(cat << __EOF__
 	pacstall -QPINs
+		bean-appearance-citrus-icon-theme
 		bean-appearance-vimix-gtk-theme
-		bean-appearance-vimix-kde-theme
 
 __EOF__
 )
