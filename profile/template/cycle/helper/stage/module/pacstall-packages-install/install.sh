@@ -61,7 +61,7 @@ sys_pacstall_install_packages () {
 
 
 local run_cmd=$(cat << __EOF__
-	pacstall -QPI
+	pacstall -QPINs
 		nushell-bin
 
 __EOF__
